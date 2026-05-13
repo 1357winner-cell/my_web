@@ -247,18 +247,18 @@ h2{
 }
 
 /* =========================
-   ABOUT FLOW
+   ABOUT
 ========================= */
 
 .about-flow{
 
     display:flex;
 
-    flex-wrap:wrap;
-
     align-items:center;
 
-    gap:10px;
+    gap:14px;
+
+    flex-wrap:wrap;
 
     font-size:22px;
 
@@ -266,7 +266,6 @@ h2{
 }
 
 .arrow{
-
     color:#777;
 }
 
@@ -313,11 +312,13 @@ h2{
 
     height:280px;
 
-    object-fit:cover;
+    object-fit:contain;
 
     display:block;
 
     background:#111;
+
+    padding:10px;
 }
 
 .product-info{
@@ -335,7 +336,7 @@ h2{
 }
 
 /* =========================
-   SMOOTH SCROLL ANIMATION
+   SCROLL EFFECT
 ========================= */
 
 .fade-section{
@@ -405,6 +406,7 @@ h2{
 
     .about-flow{
         font-size:18px;
+        gap:10px;
     }
 
     .product-grid{
@@ -557,6 +559,8 @@ h2{
 
         <div class="product-grid">
 
+            <!-- 볶음밥 -->
+
             <div class="product-card">
 
                 <img
@@ -573,6 +577,8 @@ h2{
                 </div>
 
             </div>
+
+            <!-- 덮밥 -->
 
             <div class="product-card">
 
@@ -591,6 +597,8 @@ h2{
 
             </div>
 
+            <!-- 닭강정 -->
+
             <div class="product-card">
 
                 <img
@@ -607,6 +615,8 @@ h2{
                 </div>
 
             </div>
+
+            <!-- 에이드 -->
 
             <div class="product-card">
 
@@ -660,7 +670,7 @@ h2{
 <script>
 
 /* =========================
-   SMOOTH APPEAR ANIMATION
+   SMOOTH APPEAR EFFECT
 ========================= */
 
 const sections =
@@ -674,7 +684,6 @@ const observer =
         if(entry.isIntersecting){
 
             entry.target.classList.add('show');
-
         }
 
     });
