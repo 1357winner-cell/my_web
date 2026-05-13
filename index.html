@@ -1,1 +1,702 @@
+<!DOCTYPE html>
+<html lang="ko">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>최동영 | ME:OK</title>
+
+<meta
+    name="description"
+    content="최동영 | 미나리 기반 브랜드 ME:OK 포트폴리오"
+>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:#0f1115;
+
+    color:#e5e5e5;
+
+    overflow-x:hidden;
+
+    line-height:1.7;
+}
+
+/* =========================
+   SCROLL BAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#333;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#555;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:auto;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    position:relative;
+}
+
+.hero h1{
+
+    font-size:clamp(52px, 10vw, 90px);
+
+    color:white;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+    animation:fadeHero 1.2s ease;
+}
+
+.hero-sub{
+
+    font-size:22px;
+
+    color:#00d1d1;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    animation:fadeHero 1.5s ease;
+}
+
+.hero-email{
+
+    font-size:17px;
+
+    color:#cfcfcf;
+
+    animation:fadeHero 1.8s ease;
+}
+
+@keyframes fadeHero{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   SCROLL GUIDE
+========================= */
+
+.scroll-guide{
+
+    position:absolute;
+
+    bottom:40px;
+
+    left:0;
+
+    font-size:14px;
+
+    color:#777;
+
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+
+    margin-top:120px;
+}
+
+h2{
+
+    font-size:26px;
+
+    margin-bottom:20px;
+
+    color:#00d1d1;
+
+    border-left:5px solid #00d1d1;
+
+    padding-left:14px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    background:#1a1d24;
+
+    padding:26px;
+
+    border-radius:20px;
+
+    font-size:18px;
+
+    box-shadow:
+        0 6px 24px rgba(0,0,0,0.3);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 12px 32px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.highlight{
+
+    color:#00d1d1;
+
+    font-weight:bold;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-flow{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    font-size:22px;
+
+    font-weight:600;
+}
+
+.arrow{
+    color:#777;
+}
+
+/* =========================
+   PRODUCT
+========================= */
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, 1fr);
+
+    gap:24px;
+}
+
+.product-card{
+
+    background:#1a1d24;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 6px 24px rgba(0,0,0,0.3);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.product-card:hover{
+
+    transform:scale(1.02);
+
+    box-shadow:
+        0 14px 36px rgba(0,0,0,0.45);
+}
+
+.product-card img{
+
+    width:100%;
+
+    aspect-ratio:4 / 3;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#111;
+}
+
+.product-info{
+
+    padding:18px;
+
+    text-align:center;
+}
+
+.product-title{
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+/* =========================
+   SCROLL EFFECT
+========================= */
+
+.fade-section{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+
+    will-change:
+        opacity,
+        transform;
+}
+
+.fade-section.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:100px;
+
+    padding-bottom:60px;
+
+    color:#666;
+
+    font-size:14px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+    .container{
+        width:92%;
+    }
+
+    .hero h1{
+        font-size:54px;
+    }
+
+    .hero-sub{
+        font-size:18px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    .card{
+        font-size:16px;
+    }
+
+    .about-flow{
+        font-size:18px;
+        gap:10px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <h1>
+            최동영
+        </h1>
+
+        <div class="hero-sub">
+            25세 | 창업 준비생
+        </div>
+
+        <div class="hero-email">
+            📧 weron12190@naver.com
+        </div>
+
+        <div class="scroll-guide">
+            ↓ SCROLL
+        </div>
+
+    </div>
+
+    <!-- ABOUT -->
+
+    <section class="fade-section">
+
+        <h2>ABOUT</h2>
+
+        <div class="card">
+
+            <div class="about-flow">
+
+                <span>
+                    먹는 것을 좋아하는 사람
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+                <span class="highlight">
+                    요리하는 사람
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+                <span class="highlight">
+                    브랜드를 만드는 사람
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CURRENT -->
+
+    <section class="fade-section">
+
+        <h2>CURRENT</h2>
+
+        <div class="card">
+
+            한국공학대학교 경영학부 재학<br>
+
+            창업동아리
+            <span class="highlight">
+                미미당
+            </span><br>
+
+            제품기획 · 개발 · 운영전략 담당
+
+        </div>
+
+    </section>
+
+    <!-- STORY -->
+
+    <section class="fade-section">
+
+        <h2>STORY</h2>
+
+        <div class="card">
+
+            "내가 만든 음식을 나누고 싶다"<br><br>
+
+            요리 → 판매 → 창업 확장<br><br>
+
+            <span class="highlight">
+                미나리 기반 브랜드 설립에 참여하여
+            </span><br>
+
+            아이디어를 현실로 실행 중
+
+        </div>
+
+    </section>
+
+    <!-- BRAND -->
+
+    <section class="fade-section">
+
+        <h2>BRAND | ME:OK</h2>
+
+        <div class="card">
+
+            <span class="highlight">
+                ME:OK
+            </span>
+
+            | 시흥의 맛<br><br>
+
+            미나리 + 햇토미 기반 먹거리 브랜드<br><br>
+
+            <span class="highlight">
+                지역 가치 + 맛 + 차별화 경험 제공
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCT -->
+
+    <section class="fade-section">
+
+        <h2>PRODUCT</h2>
+
+        <div class="product-grid">
+
+            <!-- 볶음밥 -->
+
+            <div class="product-card">
+
+                <img
+                    src="./images/friedrice.jpg"
+                    alt="미나리 삼겹살 볶음밥"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        미나리 삼겹살 볶음밥
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 덮밥 -->
+
+            <div class="product-card">
+
+                <img
+                    src="./images/ricebowl.jpg"
+                    alt="미나리 삼겹 덮밥"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        미나리 삼겹 덮밥
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 닭강정 -->
+
+            <div class="product-card">
+
+                <img
+                    src="./images/chicken.jpg"
+                    alt="미나리 햇토미 닭강정"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        미나리 햇토미 닭강정
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 에이드 -->
+
+            <div class="product-card">
+
+                <img
+                    src="./images/ade.jpg"
+                    alt="미나리 사과 에이드"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        미나리 사과 에이드
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FUTURE -->
+
+    <section class="fade-section">
+
+        <h2>FUTURE</h2>
+
+        <div class="card">
+
+            ✔ 팝업 스토어 참여<br>
+
+            ✔ 브랜드 확장<br>
+
+            ✔ 배곧 오프라인 매장 예정
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 CHOI DONG YOUNG
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   SMOOTH SCROLL EFFECT
+========================= */
+
+const sections =
+    document.querySelectorAll('.fade-section');
+
+const observer =
+    new IntersectionObserver((entries)=>{
+
+    entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('show');
+
+        }else{
+
+            entry.target.classList.remove('show');
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+
+</script>
+
+</body>
+
+</html>
