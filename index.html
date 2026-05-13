@@ -40,12 +40,7 @@ h2 {
     margin-top: 15px;
 }
 
-.highlight {
-    color: #00d1d1;
-    font-weight: bold;
-}
-
-/* ✅ 제품 영역 */
+/* ✅ 제품 카드 */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -58,31 +53,34 @@ h2 {
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
-    padding-bottom: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
 .product-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .product-card img {
     width: 100%;
     height: 250px;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
     background-color: #111;
 }
 
-.product-info {
-    padding: 10px;
-    text-align: center;
-}
-
 .product-title {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
-/* ✅ ✅ 스크롤 애니메이션 */
+.highlight {
+    color: #00d1d1;
+}
+
+/* ✅ 애니메이션 */
 .fade-up {
     opacity: 0;
     transform: translateY(40px);
@@ -108,7 +106,7 @@ h2 {
 
 <h1 class="fade-up">최동영</h1>
 <p class="highlight fade-up">25세 | 창업 준비생</p>
-<p class="fade-up">📧 weron12190@naver.com</p>
+<p class="fade-up">weron12190@naver.com</p>
 
 <h2 class="fade-up">ABOUT</h2>
 <div class="card fade-up">
@@ -143,37 +141,29 @@ h2 {
 
     <div class="product-card fade-up">
         <img src="friedrice.jpg">
-        <div class="product-info">
-            <div class="product-title">미나리 삼겹살 볶음밥</div>
-        </div>
+        <div class="product-title">미나리 삼겹살 볶음밥</div>
     </div>
 
     <div class="product-card fade-up">
         <img src="ricebowl.jpg">
-        <div class="product-info">
-            <div class="product-title">미나리 삼겹 덮밥</div>
-        </div>
+        <div class="product-title">미나리 삼겹 덮밥</div>
     </div>
 
     <div class="product-card fade-up">
         <img src="chicken.jpg">
-        <div class="product-info">
-            <div class="product-title">미나리 햇토미 닭강정</div>
-        </div>
+        <div class="product-title">미나리 햇토미 닭강정</div>
     </div>
 
     <div class="product-card fade-up">
         <img src="ade.jpg">
-        <div class="product-info">
-            <div class="product-title">미나리 사과 에이드</div>
-        </div>
+        <div class="product-title">미나리 사과 에이드</div>
     </div>
 
 </div>
 
 <h2 class="fade-up">FUTURE</h2>
 <div class="card fade-up">
-✔ 팝업 스토어 참여<br>
+✔ 지역 행사 팝업 참여<br>
 ✔ 브랜드 확장<br>
 ✔ 배곧 오프라인 매장
 </div>
@@ -188,7 +178,7 @@ h2 {
 <script>
 const elements = document.querySelectorAll('.fade-up');
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
@@ -201,3 +191,4 @@ elements.forEach(el => observer.observe(el));
 
 </body>
 </html>
+
