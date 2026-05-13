@@ -65,12 +65,11 @@ h2 {
     transform: scale(1.03);
 }
 
-/* ✅ 핵심: 잘림 없이 보이도록 */
 .product-card img {
     width: 100%;
     height: 250px;
-    object-fit: contain;  /* ⭐ 중요 */
-    background-color: #111; /* 빈 공간 자연스럽게 */
+    object-fit: contain;
+    background-color: #111;
 }
 
 .product-info {
@@ -81,6 +80,18 @@ h2 {
 .product-title {
     font-size: 15px;
     font-weight: bold;
+}
+
+/* ✅ ✅ 스크롤 애니메이션 */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .footer {
@@ -95,63 +106,63 @@ h2 {
 
 <div class="container">
 
-<h1>최동영</h1>
-<p class="highlight">25세 | 창업 준비생</p>
-<p>📧 weron12190@naver.com</p>
+<h1 class="fade-up">최동영</h1>
+<p class="highlight fade-up">25세 | 창업 준비생</p>
+<p class="fade-up">📧 weron12190@naver.com</p>
 
-<h2>ABOUT</h2>
-<div class="card">
+<h2 class="fade-up">ABOUT</h2>
+<div class="card fade-up">
 먹는 것을 좋아하는 사람 →  
 <span class="highlight">요리하는 사람</span> →  
 <span class="highlight">브랜드를 만드는 사람</span>
 </div>
 
-<h2>CURRENT</h2>
-<div class="card">
+<h2 class="fade-up">CURRENT</h2>
+<div class="card fade-up">
 한국공학대학교 경영학부 재학<br>
 창업동아리 <span class="highlight">미미당</span><br>
 제품기획 · 개발 · 운영전략 담당
 </div>
 
-<h2>STORY</h2>
-<div class="card">
+<h2 class="fade-up">STORY</h2>
+<div class="card fade-up">
 "내가 만든 음식을 나누고 싶다"<br><br>
 요리 → 판매 → 창업 확장<br><br>
 <span class="highlight">아이디어를 현실로 실행 중</span>
 </div>
 
-<h2>BRAND | ME:OK</h2>
-<div class="card">
+<h2 class="fade-up">BRAND | ME:OK</h2>
+<div class="card fade-up">
 <span class="highlight">ME:OK</span> | 시흥의 맛<br><br>
 미나리 + 햇토미 기반 먹거리 브랜드
 </div>
 
-<h2>PRODUCT</h2>
+<h2 class="fade-up">PRODUCT</h2>
 
 <div class="product-grid">
 
-    <div class="product-card">
+    <div class="product-card fade-up">
         <img src="friedrice.jpg">
         <div class="product-info">
             <div class="product-title">미나리 삼겹살 볶음밥</div>
         </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card fade-up">
         <img src="ricebowl.jpg">
         <div class="product-info">
             <div class="product-title">미나리 삼겹 덮밥</div>
         </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card fade-up">
         <img src="chicken.jpg">
         <div class="product-info">
             <div class="product-title">미나리 햇토미 닭강정</div>
         </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card fade-up">
         <img src="ade.jpg">
         <div class="product-info">
             <div class="product-title">미나리 사과 에이드</div>
@@ -160,19 +171,33 @@ h2 {
 
 </div>
 
-<h2>FUTURE</h2>
-<div class="card">
+<h2 class="fade-up">FUTURE</h2>
+<div class="card fade-up">
 ✔ 팝업 스토어 참여<br>
 ✔ 브랜드 확장<br>
 ✔ 배곧 오프라인 매장
 </div>
 
-<div class="footer">
+<div class="footer fade-up">
 © 2026 CHOI DONG YOUNG
 </div>
 
 </div>
 
+<!-- ✅ JS (애니메이션 핵심) -->
+<script>
+const elements = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
-``
