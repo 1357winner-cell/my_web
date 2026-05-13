@@ -320,6 +320,15 @@ h2{
     background:#111;
 }
 
+/* 에이드만 contain 처리 */
+
+.ade-image{
+
+    object-fit:contain !important;
+
+    padding:10px;
+}
+
 .product-info{
 
     padding:18px;
@@ -342,11 +351,12 @@ h2{
 
     opacity:0;
 
-    transform:translateY(50px);
+    transform:
+        translateY(80px);
 
     transition:
-        opacity 0.9s ease,
-        transform 0.9s ease;
+        opacity 1.2s cubic-bezier(0.22,1,0.36,1),
+        transform 1.2s cubic-bezier(0.22,1,0.36,1);
 
     will-change:
         opacity,
@@ -357,7 +367,8 @@ h2{
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+        translateY(0);
 }
 
 /* =========================
@@ -616,7 +627,8 @@ h2{
             <div class="product-card">
 
                 <img
-                    src="./images/ade.jpg"
+                    class="ade-image"
+                    src="./images/ade.jpg?v=1"
                     alt="미나리 사과 에이드"
                 >
 
@@ -665,7 +677,7 @@ h2{
 <script>
 
 /* =========================
-   SMOOTH SCROLL EFFECT
+   NATURAL SCROLL EFFECT
 ========================= */
 
 const sections =
@@ -688,7 +700,8 @@ const observer =
     });
 
 },{
-    threshold:0.2
+    threshold:0.12,
+    rootMargin:"0px 0px -8% 0px"
 });
 
 sections.forEach((section)=>{
