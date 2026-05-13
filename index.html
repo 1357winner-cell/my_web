@@ -1,4 +1,5 @@
-<!DOCTYPE html><!DOCTYPE html="ko">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,84 +13,94 @@ body {
     color: #e5e5e5;
 }
 
+/* ✅ 전체 컨테이너 */
 .container {
     width: 90%;
     max-width: 1000px;
     margin: auto;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
+/* ✅ 큰 제목 */
 h1 {
-    font-size: 40px;
+    font-size: 48px;
     color: white;
     margin-bottom: 10px;
 }
 
+/* ✅ 소제목 */
 h2 {
-    margin-top: 30px;
-    font-size: 20px;
+    margin-top: 35px;
+    font-size: 24px;
     color: #00d1d1;
-    border-left: 4px solid #00d1d1;
-    padding-left: 10px;
+    border-left: 5px solid #00d1d1;
+    padding-left: 12px;
 }
 
+/* ✅ 일반 텍스트 */
 p {
-    margin: 5px 0;
+    font-size: 18px;
+    margin: 6px 0;
 }
 
+/* ✅ 카드 */
 .card {
     background: #1a1d24;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 10px;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 12px;
+    font-size: 18px;
 }
 
+/* ✅ 강조 */
 .highlight {
     color: #00d1d1;
     font-weight: bold;
 }
 
-/* ✅ 제품 */
+/* ✅ 제품 영역 */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 18px;
     margin-top: 15px;
 }
 
 .product-card {
     background: #1a1d24;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s;
 }
 
 .product-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
+/* ✅ 이미지 */
 .product-card img {
     width: 100%;
-    height: 220px;
+    height: 240px;
     object-fit: contain;
     background-color: #111;
 }
 
+/* ✅ 제품 이름 */
 .product-info {
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
 
 .product-title {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: bold;
 }
 
 /* ✅ 애니메이션 */
 .fade-up {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+    transform: translateY(15px);
+    transition: all 0.5s ease;
 }
 
 .fade-up.show {
@@ -97,9 +108,11 @@ p {
     transform: translateY(0);
 }
 
+/* ✅ 푸터 */
 .footer {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
+    font-size: 14px;
     color: #777;
 }
 </style>
@@ -146,28 +159,28 @@ p {
 <div class="product-grid">
 
     <div class="product-card fade-up">
-        <img src="friedrice.jpg" alt="볶음밥">
+        friedrice.jpg
         <div class="product-info">
             <div class="product-title">미나리 삼겹살 볶음밥</div>
         </div>
     </div>
 
     <div class="product-card fade-up">
-        <img src="ricebowl.jpg" alt="덮밥">
+        ricebowl.jpg
         <div class="product-info">
             <div class="product-title">미나리 삼겹 덮밥</div>
         </div>
     </div>
 
     <div class="product-card fade-up">
-        <img src="chicken.jpg" alt="닭강정">
+        chicken.jpg
         <div class="product-info">
             <div class="product-title">미나리 햇토미 닭강정</div>
         </div>
     </div>
 
     <div class="product-card fade-up">
-        <img src="ade.jpg" alt="에이드">
+        ade.jpg
         <div class="product-info">
             <div class="product-title">미나리 사과 에이드</div>
         </div>
@@ -188,13 +201,15 @@ p {
 
 </div>
 
+<!-- ✅ 애니메이션 (흔들림 방지) -->
 <script>
 const elements = document.querySelectorAll('.fade-up');
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
+            observer.unobserve(entry.target);
         }
     });
 });
