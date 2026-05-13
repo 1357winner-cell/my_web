@@ -251,12 +251,10 @@ h2{
 }
 
 .product-card{
-
-    background:#1a1d24;
-
-    border-radius:20px;
-
     overflow:hidden;
+    
+    border-radius:20px;
+}    
 
     box-shadow:
         0 6px 24px rgba(0,0,0,0.3);
@@ -286,6 +284,8 @@ h2{
     object-position:center;
 
     display:block;
+
+    transition:0.4s ease;
 }
 
     
@@ -293,29 +293,15 @@ h2{
 
 .food-image{
 
-    transform:scale(1);
+    transform:scale(1.08);
 
-    object-fit:cover;
-
-    object-position:center;
+}
 
 /* 에이드만 cover 처리 */
 
 .ade-image{
 
-    width:100%;
-
-    aspect-ratio:4 / 3;
-
-    object-fit:cover;
-
-    object-position:center;
-
-    display:block;
-
-    height:100%;
-
-    transform:scale(1) !important;
+    transform:scale(1);
 
 }
     
