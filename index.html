@@ -224,7 +224,6 @@ h2{
 
     transition:
         transform 0.4s ease,
-        opacity 0.4s ease,
         box-shadow 0.4s ease;
 }
 
@@ -245,6 +244,30 @@ h2{
     color:#00d1d1;
 
     font-weight:bold;
+}
+
+/* =========================
+   ABOUT FLOW
+========================= */
+
+.about-flow{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:22px;
+
+    font-weight:600;
+}
+
+.arrow{
+
+    color:#777;
 }
 
 /* =========================
@@ -273,8 +296,7 @@ h2{
 
     transition:
         transform 0.4s ease,
-        box-shadow 0.4s ease,
-        opacity 0.4s ease;
+        box-shadow 0.4s ease;
 }
 
 .product-card:hover{
@@ -313,18 +335,22 @@ h2{
 }
 
 /* =========================
-   SCROLL EFFECT
+   SMOOTH SCROLL ANIMATION
 ========================= */
 
 .fade-section{
 
     opacity:0;
 
-    transform:translateY(60px);
+    transform:translateY(40px);
 
     transition:
-        opacity 0.9s ease,
-        transform 0.9s ease;
+        opacity 1s ease,
+        transform 1s ease;
+
+    will-change:
+        opacity,
+        transform;
 }
 
 .fade-section.show{
@@ -377,6 +403,10 @@ h2{
         font-size:16px;
     }
 
+    .about-flow{
+        font-size:18px;
+    }
+
     .product-grid{
         grid-template-columns:1fr;
     }
@@ -424,15 +454,29 @@ h2{
 
         <div class="card">
 
-            먹는 것을 좋아하는 사람 →<br>
+            <div class="about-flow">
 
-            <span class="highlight">
-                요리하는 사람
-            </span> →<br>
+                <span>
+                    먹는 것을 좋아하는 사람
+                </span>
 
-            <span class="highlight">
-                브랜드를 만드는 사람
-            </span>
+                <span class="arrow">
+                    →
+                </span>
+
+                <span class="highlight">
+                    요리하는 사람
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+                <span class="highlight">
+                    브랜드를 만드는 사람
+                </span>
+
+            </div>
 
         </div>
 
@@ -495,7 +539,11 @@ h2{
 
             | 시흥의 맛<br><br>
 
-            미나리 + 햇토미 기반 먹거리 브랜드
+            미나리 + 햇토미 기반 먹거리 브랜드<br><br>
+
+            <span class="highlight">
+                지역 가치 + 맛 + 차별화 경험 제공
+            </span>
 
         </div>
 
@@ -508,8 +556,6 @@ h2{
         <h2>PRODUCT</h2>
 
         <div class="product-grid">
-
-            <!-- 볶음밥 -->
 
             <div class="product-card">
 
@@ -528,8 +574,6 @@ h2{
 
             </div>
 
-            <!-- 덮밥 -->
-
             <div class="product-card">
 
                 <img
@@ -547,8 +591,6 @@ h2{
 
             </div>
 
-            <!-- 닭강정 -->
-
             <div class="product-card">
 
                 <img
@@ -565,8 +607,6 @@ h2{
                 </div>
 
             </div>
-
-            <!-- 에이드 -->
 
             <div class="product-card">
 
@@ -620,7 +660,7 @@ h2{
 <script>
 
 /* =========================
-   SCROLL ANIMATION
+   SMOOTH APPEAR ANIMATION
 ========================= */
 
 const sections =
@@ -635,9 +675,6 @@ const observer =
 
             entry.target.classList.add('show');
 
-        }else{
-
-            entry.target.classList.remove('show');
         }
 
     });
@@ -653,4 +690,5 @@ sections.forEach((section)=>{
 </script>
 
 </body>
+
 </html>
