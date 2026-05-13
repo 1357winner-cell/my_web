@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
+<head="UTF-8"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>최동영 | 자기 PR</title>
 
@@ -40,6 +39,10 @@ h2 {
     margin-top: 15px;
 }
 
+.highlight {
+    color: #00d1d1;
+}
+
 /* ✅ 제품 카드 */
 .product-grid {
     display: grid;
@@ -52,9 +55,9 @@ h2 {
     background: #1a1d24;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s;
     padding: 10px;
     text-align: center;
+    transition: transform 0.3s;
 }
 
 .product-card:hover {
@@ -65,26 +68,21 @@ h2 {
     width: 100%;
     height: 250px;
     object-fit: contain;
-    display: block;
     margin: 0 auto;
-    background-color: #111;
+    display: block;
+    background: #111;
 }
 
 .product-title {
-    font-size: 16px;
-    font-weight: bold;
     margin-top: 10px;
+    font-weight: bold;
 }
 
-.highlight {
-    color: #00d1d1;
-}
-
-/* ✅ 애니메이션 */
+/* ✅ 핵심 애니메이션 */
 .fade-up {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+    transform: translateY(50px);
+    transition: all 0.7s ease;
 }
 
 .fade-up.show {
@@ -104,14 +102,16 @@ h2 {
 
 <div class="container">
 
-<h1 class="fade-up">최동영</h1>
-<p class="highlight fade-up">25세 | 창업 준비생</p>
-<p class="fade-up">weron12190@naver.com</p>
+<!-- ✅ 항상 보이는 영역 -->
+<h1>최동영</h1>
+<p class="highlight">25세 | 창업 준비생</p>
+<p>weron12190@naver.com</p>
 
+<!-- ✅ 아래부터 애니메이션 적용 -->
 <h2 class="fade-up">ABOUT</h2>
 <div class="card fade-up">
-먹는 것을 좋아하는 사람 →  
-<span class="highlight">요리하는 사람</span> →  
+먹는 것을 좋아하는 사람 →
+<span class="highlight">요리하는 사람</span> →
 <span class="highlight">브랜드를 만드는 사람</span>
 </div>
 
@@ -174,7 +174,7 @@ h2 {
 
 </div>
 
-<!-- ✅ JS (애니메이션 핵심) -->
+<!-- ✅ JS 핵심 (반복 애니메이션) -->
 <script>
 const elements = document.querySelectorAll('.fade-up');
 
@@ -182,6 +182,8 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show'); // ✅ 다시 숨김 (핵심🔥)
         }
     });
 });
@@ -191,4 +193,5 @@ elements.forEach(el => observer.observe(el));
 
 </body>
 </html>
+
 
