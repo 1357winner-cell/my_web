@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head="UTF-8"><head>
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>최동영 | 자기 PR</title>
 
@@ -17,6 +18,14 @@ body {
     max-width: 1000px;
     margin: auto;
     padding: 40px 0;
+}
+
+/* ✅ 첫 화면 공간 확보 */
+.hero {
+    height: 100vh;   /* 전체 화면 만큼 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1 {
@@ -43,7 +52,7 @@ h2 {
     color: #00d1d1;
 }
 
-/* ✅ 제품 카드 */
+/* 제품 카드 */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -54,7 +63,6 @@ h2 {
 .product-card {
     background: #1a1d24;
     border-radius: 10px;
-    overflow: hidden;
     padding: 10px;
     text-align: center;
     transition: transform 0.3s;
@@ -69,7 +77,6 @@ h2 {
     height: 250px;
     object-fit: contain;
     margin: 0 auto;
-    display: block;
     background: #111;
 }
 
@@ -78,10 +85,10 @@ h2 {
     font-weight: bold;
 }
 
-/* ✅ 핵심 애니메이션 */
+/* ✅ 애니메이션 */
 .fade-up {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(60px);
     transition: all 0.7s ease;
 }
 
@@ -102,12 +109,15 @@ h2 {
 
 <div class="container">
 
-<!-- ✅ 항상 보이는 영역 -->
-<h1>최동영</h1>
-<p class="highlight">25세 | 창업 준비생</p>
-<p>weron12190@naver.com</p>
+<!-- ✅ 항상 보이는 첫 화면 -->
+<div class="hero">
+    <h1>최동영</h1>
+    <p class="highlight">25세 | 창업 준비생</p>
+    <p>weron12190@naver.com</p>
+</div>
 
-<!-- ✅ 아래부터 애니메이션 적용 -->
+<!-- ✅ 아래부터 스크롤 등장 -->
+
 <h2 class="fade-up">ABOUT</h2>
 <div class="card fade-up">
 먹는 것을 좋아하는 사람 →
@@ -140,22 +150,22 @@ h2 {
 <div class="product-grid">
 
     <div class="product-card fade-up">
-        <img src="friedrice.jpg">
+        friedrice.jpg
         <div class="product-title">미나리 삼겹살 볶음밥</div>
     </div>
 
     <div class="product-card fade-up">
-        <img src="ricebowl.jpg">
+        ricebowl.jpg
         <div class="product-title">미나리 삼겹 덮밥</div>
     </div>
 
     <div class="product-card fade-up">
-        <img src="chicken.jpg">
+        chicken.jpg
         <div class="product-title">미나리 햇토미 닭강정</div>
     </div>
 
     <div class="product-card fade-up">
-        <img src="ade.jpg">
+        ade.jpg
         <div class="product-title">미나리 사과 에이드</div>
     </div>
 
@@ -174,7 +184,6 @@ h2 {
 
 </div>
 
-<!-- ✅ JS 핵심 (반복 애니메이션) -->
 <script>
 const elements = document.querySelectorAll('.fade-up');
 
@@ -183,7 +192,7 @@ const observer = new IntersectionObserver(entries => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
         } else {
-            entry.target.classList.remove('show'); // ✅ 다시 숨김 (핵심🔥)
+            entry.target.classList.remove('show');
         }
     });
 });
@@ -193,5 +202,4 @@ elements.forEach(el => observer.observe(el));
 
 </body>
 </html>
-
 
